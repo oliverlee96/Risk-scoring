@@ -10,6 +10,7 @@ let metadataRiskValues = {
 };
 
 function calculateTechnicalRisk(metadataRiskValue,numberOfDependencies) { //takes 2 integers as values
+
     //error handling
 
     if (!metadataRiskValue || !numberOfDependencies) {

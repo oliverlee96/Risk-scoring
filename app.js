@@ -1,12 +1,19 @@
-const http = require('http');
 
-const express = require('express');
 
-const app = express();
+const form = document.querySelector('form');
+const metadataTypeInput = document.getElementById('metadata-type');
+const dataPrivacyInput = document.getElementById('data-privacy');
+const dependenciesInput = document.getElementById('dependencies');
+const documentationInput = document.getElementById('documentation');
 
-const calculateTechnicalRisk = require('./Algorithms/technicalRiskCalculation');
+form.addEventListener('submit',(event)=> {
+    event.preventDefault();
 
-console.log(calculateTechnicalRisk(3,2));
+    const metadataType = metadataTypeInput.value;
+    const dataPrivacy = dataPrivacyInput.value;
+    const dependencies = dependenciesInput.value;
+    const documentation = documentInput.value;
+    
+})
 
-app.get('/', (req, res) => res.send('Hello'));
-app.listen(3000, () => console.log('Server running on port 3000'));
+calculateTechnicalRisk(1,2);
