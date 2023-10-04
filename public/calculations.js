@@ -38,21 +38,27 @@ const riskValues = {
     "High": 3
 };
 
+//So we can convert the number back to a risk level that makes sense to a human on the frontend
 const risk = {
-    1: "Low",
-    2: "Medium",
-    3: "High"
+    1: "low",
+    2: "medium",
+    3: "high"
 }
 
+//function to calculate the individual risks for each metadata attribute
 module.exports.calculateIndividualRisk = function(data) {
+    //stores each risk level so we can then calculate the highest one
     let individualRisks = {};
 
-    individualRisks.metadataRisk = riskMapping.metadataType[data.metadataType] || "low";
-    individualRisks.dataPrivacyRisk = riskMapping.dataPrivacyCategory[data.dataPrivacyCategory] || "low";
+    individualRisks.metadataRisk = riskMapping.metadataType[data.metadataType] || "Low";
+    individualRisks.dataPrivacyRisk = riskMapping.dataPrivacyCategory[data.dataPrivacyCategory] || "Low";
+    //TODO: Add the other 2 attribute calculations
 
     return individualRisks;
 }
 
+//function to calculate highest risk value of all the individual risks
+//we classify metadata risk according to the highest value
 module.exports.calculateOverallRisk = function(individualRisks) {
     let maxRisk = 0;
 

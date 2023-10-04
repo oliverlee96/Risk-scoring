@@ -18,7 +18,7 @@ app.post('/calculate', (req,res) => {
     const overallRisk = calculateOverallRisk(individualRisks);
 
     console.log(overallRisk);
-    res.json({ overallRisk });
+    res.json({ overallRisk, metadataType: data.metadataType });
 });
 
 app.listen(port, () => {

@@ -1,4 +1,4 @@
-import { calculateIndividualRisk, calculateOverallRisk } from "./calculations.js";
+//event listener to collect form input data and post it to the backend
 
 document.addEventListener('DOMContentLoaded', () => {
     
@@ -30,14 +30,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
       console.log(data);
 
-      // const individualRisks = calculateIndividualRisk(data);
-      // const overallRisk = calculateOverallRisk(individualRisks);
+      const riskLevelSpan = document.getElementById('riskLevelSpan');
+      const metadataTypeSpan = document.getElementById('metadataTypeSpan');
 
-      // console.log("risk is" + overallRisk);
-      
-    //   document.getElementById('result').textContent = `Risk Level: ${data.result}`;
+      const riskLevel = data.overallRisk;
+      const metadataType = data.metadataType;
+
+      riskLevelSpan.textContent = riskLevel;
+      metadataTypeSpan.textContent = metadataType;
     });
 
   });
+
+  
+
+
 
   
