@@ -9,7 +9,6 @@ In software development, especially in projects involving Salesforce, assessing 
 ## Features
 
 - Calculate the risk level of changing an individual piece of metadata based on it's attributes.
-- Calculate the overall risk of a Salesforce change user story based on the aggregated risk levels of related metadata components.
 
 ## Usage
 

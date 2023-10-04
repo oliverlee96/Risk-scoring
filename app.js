@@ -1,19 +1,26 @@
+const express = require('express');
+const bodyParser = require('body-parser');
+const app = express();
+const port = 3000;
+const path = require('path');
+const { calculateIndividualRisk, calculateOverallRisk } = require('./public/calculations');
 
+//Parses the JSON requests
+app.use(bodyParser.json());
 
-const form = document.querySelector('form');
-const metadataTypeInput = document.getElementById('metadata-type');
-const dataPrivacyInput = document.getElementById('data-privacy');
-const dependenciesInput = document.getElementById('dependencies');
-const documentationInput = document.getElementById('documentation');
+//Serves the static files from the public folder
+app.use(express.static('public'));
 
-form.addEventListener('submit',(event)=> {
-    event.preventDefault();
+app.post('/calculate', (req,res) => {
+    const data = req.body;
 
-    const metadataType = metadataTypeInput.value;
-    const dataPrivacy = dataPrivacyInput.value;
-    const dependencies = dependenciesInput.value;
-    const documentation = documentInput.value;
-    
-})
+    const individualRisks = calculateIndividualRisk(data);
+    const overallRisk = calculateOverallRisk(individualRisks);
 
-calculateTechnicalRisk(1,2);
+    console.log(overallRisk);
+    res.json({ overallRisk });
+});
+
+app.listen(port, () => {
+    console.log(`Server running at http://localhost:${port}/`)
+});
