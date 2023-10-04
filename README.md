@@ -17,7 +17,8 @@ This project is meant for my own personal learning and experimentation. To use t
 1. Clone the repository to your local machine.
 2. Open the project files in your preferred text editor or integrated development environment.
 3. Explore the codebase to understand how the risk calculation is implemented.
-4. Modify and experiment with the metadata inputs to explore how they impact the risk outcome.
+4. Run the application using the following command: node app.js 
+5. Modify and experiment with the metadata inputs to explore how they impact the risk outcome.
 
 ## Disclaimer
 
