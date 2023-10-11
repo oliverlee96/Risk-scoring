@@ -1,6 +1,20 @@
 //event listener to collect form input data and post it to the backend
+import { riskMapping } from './calculations.js'
 
 document.addEventListener('DOMContentLoaded', () => {
+
+  function populateSelectField(selectElementId, object) {
+    const selectElement = document.getElementById(selectElementId);
+    for (const key in object) {
+        const option = document.createElement("option");
+        option.value = key;
+        option.text = key;
+        console.log(option);
+        selectElement.appendChild(option);
+    }
+  };
+  console.log(populateSelectField("metadata-type", riskMapping.metadataType))
+
     
   const form = document.getElementById('metadata-form');
     form.addEventListener('submit', async (event) => {
@@ -41,9 +55,3 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
   });
-
-  
-
-
-
-  

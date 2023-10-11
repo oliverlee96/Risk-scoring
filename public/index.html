@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Metadata Risk Calculator</title>
     <link rel="stylesheet" href="index.css">
-    <script src="script.js" defer></script>
+    <script type="module" src="script.js" defer></script>
+    <script type = "module" src="calculations.js" defer> </script>
 </head>
 <body>
     <h1>Metadata Risk Calculator</h1>
@@ -15,7 +16,8 @@
     <div id="form-area">
         <form method="post" id="metadata-form">
             <label for="metadata-type">Metadata Type:</label>
-            <input type="text" id="metadata-type" name="metadata-type" placeholder="Enter metadata type"><br><br>
+            <!-- <input type="text" id="metadata-type" name="metadata-type" placeholder="Enter metadata type"><br><br> -->
+            <select name="metadata-type" id="metadata-type" placeholder="Select metadata type"></select>
     
             <label for="data-privacy">Field Data Privacy Category:</label>
             <input type="text" id="data-privacy" name="data-privacy" placeholder="Enter Data Privacy category"><br><br>

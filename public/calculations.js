@@ -1,5 +1,5 @@
 //The risk mapping objects for calculation of the risk using form input values
-const riskMapping = {
+export const riskMapping = {
     metadataType: {
         "ApexClass": "High",
         "ApexTrigger":"High",
@@ -32,7 +32,7 @@ const riskMapping = {
     }
 };
 
-const riskValues = {
+export const riskValues = {
     "Low": 1,
     "Medium": 2,
     "High": 3
@@ -46,7 +46,7 @@ const risk = {
 }
 
 //function to calculate the individual risks for each metadata attribute
-module.exports.calculateIndividualRisk = function(data) {
+export function calculateIndividualRisk(data) {
     //stores each risk level so we can then calculate the highest one
     let individualRisks = {};
 
@@ -59,7 +59,7 @@ module.exports.calculateIndividualRisk = function(data) {
 
 //function to calculate highest risk value of all the individual risks
 //we classify metadata risk according to the highest value
-module.exports.calculateOverallRisk = function(individualRisks) {
+export function calculateOverallRisk(individualRisks) {
     let maxRisk = 0;
 
     for (let risk in individualRisks) {
