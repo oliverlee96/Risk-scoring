@@ -1,10 +1,10 @@
 # Salesforce Change User Story Risk Calculator
 
-This project is a small exercise aimed at exploring the theoretical calculation of the overall risk associated with a user story for a change being made to Salesforce. The calculation is based on assessing the individual risk levels of the metadata components related to that user story. The primary purpose of this project is to practice algorithm design, web application development, and to strengthen my JavaScript skills.
+This project is a small exercise aimed at exploring the theoretical calculation of the overall risk associated with a piece of metadata for a change being made to Salesforce. The calculation is based on assessing the individual risk levels of the metadata attributes, namely - the metadata type, it's privacy type, the volume of dependencies and volume of documentation attached to it. The primary purpose of this project is to practice algorithm design, web application development, and to strengthen my front and backend JavaScript skills.
 
 ## Project Overview
 
-In software development, especially in projects involving Salesforce, assessing and managing the risk associated with changes is crucial. This project delves into the concept of quantifying risk by considering the risk levels of the individual metadata components that contribute to a change user story. It's important to note that this project is designed for my personal learning and practice purposes and is not intended for open-source use.
+In software development, especially in projects involving Salesforce, assessing and managing the risk associated with changes is crucial. This project delves into the concept of quantifying risk by considering the risk levels of the individual metadata attributes that contribute to metadata risk. It's important to note that this project is designed for my personal learning and practice purposes and is not intended for open-source use.
 
 ## Features
 
@@ -17,7 +17,8 @@ This project is meant for my own personal learning and experimentation. To use t
 1. Clone the repository to your local machine.
 2. Open the project files in your preferred text editor or integrated development environment.
 3. Explore the codebase to understand how the risk calculation is implemented.
-4. Modify and experiment with the metadata inputs to explore how they impact the risk outcome.
+4. Run the application using the following command: node app.js 
+5. Modify and experiment with the metadata inputs to explore how they impact the risk outcome.
 
 ## Disclaimer
 
