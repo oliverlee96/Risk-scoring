@@ -13,7 +13,8 @@ document.addEventListener('DOMContentLoaded', () => {
         selectElement.appendChild(option);
     }
   };
-  console.log(populateSelectField("metadata-type", riskMapping.metadataType))
+  populateSelectField("metadata-type", riskMapping.metadataType)
+  populateSelectField("data-privacy",riskMapping.dataPrivacyCategory)
 
     
   const form = document.getElementById('metadata-form');

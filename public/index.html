@@ -16,11 +16,14 @@
     <div id="form-area">
         <form method="post" id="metadata-form">
             <label for="metadata-type">Metadata Type:</label>
-            <!-- <input type="text" id="metadata-type" name="metadata-type" placeholder="Enter metadata type"><br><br> -->
-            <select name="metadata-type" id="metadata-type" placeholder="Select metadata type"></select>
+            <select name="metadata-type" id="metadata-type">
+                <option value="" selected>Select metadata type</option>
+            </select>
     
             <label for="data-privacy">Field Data Privacy Category:</label>
-            <input type="text" id="data-privacy" name="data-privacy" placeholder="Enter Data Privacy category"><br><br>
+            <select name="data-privacy" id="data-privacy">
+                <option value="" selected>Select Data Privacy category</option>
+            </select>
        
             <label for="dependencies">Number of "Used by" Metadata Dependencies:</label>
             <input type="number" id="dependencies" name="dependencies" placeholder="Enter number of dependencies"><br><br>
