@@ -42,6 +42,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  // Hide risk outcome box by default
+  const riskOutcomeBox = document.getElementById('risk-level-outcome-box');
+  riskOutcomeBox.style.display = 'none';
+
   function populateSelectField(selectElementId, object) {
     const selectElement = document.getElementById(selectElementId);
     for (const key in object) {
@@ -92,6 +96,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
       riskLevelSpan.textContent = riskLevel;
       metadataTypeSpan.textContent = metadataType;
+
+      // Show the risk outcome box with the result
+      riskOutcomeBox.style.display = 'block';
     });
 
   });
