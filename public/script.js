@@ -3,47 +3,44 @@ import { riskMapping } from './calculations.js'
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  // Information Modal Functionality
-  const modal = document.getElementById('info-modal');
-  const infoBtn = document.getElementById('info-btn');
-  const closeBtn = document.querySelector('.close');
+  // Sidebar Toggle Functionality
+  const sidebar = document.getElementById('sidebar');
+  const learnMoreBtn = document.getElementById('learn-more-btn');
+  const closeSidebarBtn = document.getElementById('close-sidebar-btn');
+  const mainContent = document.querySelector('.main-content');
 
-  // Open modal
-  infoBtn.addEventListener('click', () => {
-    modal.style.display = 'block';
-  });
+  // Function to close sidebar
+  const closeSidebar = () => {
+    sidebar.classList.remove('open');
+    mainContent.classList.remove('shifted');
+  };
 
-  // Close modal
-  closeBtn.addEventListener('click', () => {
-    modal.style.display = 'none';
-  });
+  // Function to open sidebar
+  const openSidebar = () => {
+    sidebar.classList.add('open');
+    mainContent.classList.add('shifted');
+  };
 
-  // Close modal when clicking outside
-  window.addEventListener('click', (event) => {
-    if (event.target === modal) {
-      modal.style.display = 'none';
-    }
-  });
-
-  // Collapsible Info Panel Functionality
-  const infoPanelToggle = document.getElementById('info-panel-toggle');
-  const infoPanelContent = document.getElementById('info-panel-content');
-
-  infoPanelToggle.addEventListener('click', () => {
-    const isCollapsed = infoPanelContent.classList.contains('collapsed');
+  // Learn More button click
+  learnMoreBtn.addEventListener('click', () => {
+    const isOpen = sidebar.classList.contains('open');
     
-    if (isCollapsed) {
-      infoPanelContent.classList.remove('collapsed');
-      infoPanelToggle.classList.remove('collapsed');
+    if (isOpen) {
+      closeSidebar();
     } else {
-      infoPanelContent.classList.add('collapsed');
-      infoPanelToggle.classList.add('collapsed');
+      openSidebar();
     }
   });
 
-  // Initialize panel as collapsed
-  infoPanelContent.classList.add('collapsed');
-  infoPanelToggle.classList.add('collapsed');
+  // Close button click
+  closeSidebarBtn.addEventListener('click', closeSidebar);
+
+  // Close sidebar when clicking outside
+  document.addEventListener('click', (event) => {
+    if (!sidebar.contains(event.target) && !learnMoreBtn.contains(event.target)) {
+      closeSidebar();
+    }
+  });
 
   function populateSelectField(selectElementId, object) {
     const selectElement = document.getElementById(selectElementId);

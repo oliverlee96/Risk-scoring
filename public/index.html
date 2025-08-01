@@ -9,37 +9,35 @@
     <script type = "module" src="calculations.js" defer> </script>
 </head>
 <body>
-    <div class="header-container">
-        <h1>Metadata Risk Calculator</h1>
-        <button id="info-btn" class="info-btn" title="Learn more about risk scoring">
-            <span class="info-icon">ℹ</span>
-        </button>
-    </div>
-
-    <!-- Info Modal -->
-    <div id="info-modal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>About Risk Scoring</h2>
-            <div class="info-content">
-                <h3>What is Metadata Risk Scoring?</h3>
-                <p>This tool helps you assess the risk level of your metadata based on several key factors:</p>
-                
+    <!-- Sidebar -->
+    <div id="sidebar" class="sidebar">
+        <div class="sidebar-content">
+            <h3>Risk Scoring Guide</h3>
+            <div class="guide-section">
+                <h4>What is Risk Scoring?</h4>
+                <p>This tool helps you assess the risk level of your metadata based on several key factors that impact data management and system reliability.</p>
+            </div>
+            
+            <div class="guide-section">
                 <h4>Risk Factors:</h4>
                 <ul>
-                    <li><strong>Metadata Type:</strong> Different types of metadata have varying levels of sensitivity and importance</li>
-                    <li><strong>Data Privacy Category:</strong> Higher privacy categories indicate more sensitive data</li>
+                    <li><strong>Metadata Type:</strong> Different types have varying sensitivity levels</li>
+                    <li><strong>Data Privacy Category:</strong> Higher categories indicate more sensitive data</li>
                     <li><strong>Dependencies:</strong> More dependencies increase risk as changes affect more systems</li>
                     <li><strong>Documentation:</strong> Better documentation reduces risk by improving understanding</li>
                 </ul>
+            </div>
 
+            <div class="guide-section">
                 <h4>Risk Levels:</h4>
                 <ul>
                     <li><span class="risk-low">Low Risk:</span> Well-documented, low-dependency metadata</li>
                     <li><span class="risk-medium">Medium Risk:</span> Moderate complexity and dependencies</li>
                     <li><span class="risk-high">High Risk:</span> High-dependency, sensitive metadata with limited documentation</li>
                 </ul>
+            </div>
 
+            <div class="guide-section">
                 <h4>How to Use:</h4>
                 <ol>
                     <li>Select your metadata type from the dropdown</li>
@@ -49,75 +47,55 @@
                     <li>Click "Confirm" to calculate your risk score</li>
                 </ol>
             </div>
-        </div>
-    </div>
 
-    <div class="description-text">
-        <p>Please enter your metadata information below, and press confirm when you are ready.</p>
-    </div>
-
-    <!-- Collapsible Info Panel -->
-    <div class="info-panel">
-        <button class="info-panel-toggle" id="info-panel-toggle">
-            <span class="toggle-icon">▼</span> Quick Guide
-        </button>
-        <div class="info-panel-content" id="info-panel-content">
-            <h4>Quick Reference:</h4>
-            <div class="quick-guide">
-                <div class="guide-item">
-                    <strong>Metadata Type:</strong> Choose the category that best describes your metadata
-                </div>
-                <div class="guide-item">
-                    <strong>Data Privacy:</strong> Select based on the sensitivity of the data
-                </div>
-                <div class="guide-item">
-                    <strong>Dependencies:</strong> Count how many systems or processes use this metadata
-                </div>
-                <div class="guide-item">
-                    <strong>Documentation:</strong> Number of documentation items (guides, specs, etc.)
-                </div>
+            <div class="sidebar-footer">
+                <button id="close-sidebar-btn" class="close-sidebar-btn">
+                    <span class="close-icon">✕</span>
+                    Close
+                </button>
             </div>
         </div>
     </div>
 
-    <div id="form-area">
-        <form method="post" id="metadata-form">
-            <label for="metadata-type" class="field-label">
-                Metadata Type:
-                <span class="tooltip-icon" title="Select the category that best describes your metadata type">ⓘ</span>
-            </label>
-            <select name="metadata-type" id="metadata-type">
-                <option value="" selected>Select metadata type</option>
-            </select>
-    
-            <label for="data-privacy" class="field-label">
-                Field Data Privacy Category:
-                <span class="tooltip-icon" title="Choose based on the sensitivity and privacy requirements of your data">ⓘ</span>
-            </label>
-            <select name="data-privacy" id="data-privacy">
-                <option value="" selected>Select Data Privacy category</option>
-            </select>
-       
-            <label for="dependencies" class="field-label">
-                Number of "Used by" Metadata Dependencies:
-                <span class="tooltip-icon" title="Count how many systems, processes, or applications depend on this metadata">ⓘ</span>
-            </label>
-            <input type="number" id="dependencies" name="dependencies" placeholder="Enter number of dependencies"><br><br>
-      
-            <label for="documentation" class="field-label">
-                Documentation:
-                <span class="tooltip-icon" title="Number of documentation items like guides, specifications, or reference materials">ⓘ</span>
-            </label>
-            <input type="number" id="documentation" name="documentation" placeholder="Enter amount of documentation items"><br><br>
-            
-            <input type="submit" value="Confirm">
-        </form>
-    </div>
+    <!-- Learn More Button -->
+    <button id="learn-more-btn" class="learn-more-btn">
+        <span class="btn-text">Learn More</span>
+        <span class="btn-icon">ℹ</span>
+    </button>
 
-    <div id="risk-level-outcome-box">
-        <p id="result">
-            This <span id="metadataTypeSpan"></span> is <span id="riskLevelSpan"></span> risk.
-        </p>
+    <!-- Main Content -->
+    <div class="main-content">
+        <h1>Metadata Risk Calculator</h1>
+        <div class="description-text">
+            <p>Please enter your metadata information below, and press confirm when you are ready.</p>
+        </div>
+        <div id="form-area">
+            <form method="post" id="metadata-form">
+                <label for="metadata-type">Metadata Type:</label>
+                <select name="metadata-type" id="metadata-type">
+                    <option value="" selected>Select metadata type</option>
+                </select>
+        
+                <label for="data-privacy">Field Data Privacy Category:</label>
+                <select name="data-privacy" id="data-privacy">
+                    <option value="" selected>Select Data Privacy category</option>
+                </select>
+           
+                <label for="dependencies">Number of "Used by" Metadata Dependencies:</label>
+                <input type="number" id="dependencies" name="dependencies" placeholder="Enter number of dependencies"><br><br>
+          
+                <label for="documentation">Documentation:</label>
+                <input type="number" id="documentation" name="documentation" placeholder="Enter amount of documentation items"><br><br>
+                
+                <input type="submit" value="Confirm">
+            </form>
+        </div>
+
+        <div id="risk-level-outcome-box">
+            <p id="result">
+                This <span id="metadataTypeSpan"></span> is <span id="riskLevelSpan"></span> risk.
+            </p>
+        </div>
     </div>
     
 </body>
